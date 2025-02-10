@@ -214,13 +214,46 @@ def file_sort(infile,outfile):
     input_file.close()
     output_file.close()
 
-
+def display_menu():
+    print("1. compute pi up to a certain number ")
+    print("2. find the square root of a number ")
+    print("3. display all the primes up to that number ")
+    print("4. process scores ")
+    print("5. compute tax ")
+    print("6. solve quadratic solutions ")
+    print("7. sort an array ")
+    print("8. print an id and password ")
+    print("9. sort a file of students by id ")
+    print("10. quit")
+    
+# Write a main program that allows a user to use the functions in questions 1-9. The
+# program contains an interactive menu with 10 options. The user enters an option number
+# to choose an option. Each option calls its function. If the function needs inputs then the
+# menu program asks the user for inputs. If the function gives outputs then the menu
+# program displays the outputs with appropriate messages. The menu program repeatedly
+# displays the menu and asks for an option until the user decides to quit.
 def main():
-   # n = int(input("Please enter a number to find primes upto "))
-    #display_primes(n)
-   # process_scores()
-   id_password("christian", "martin")
-   file_sort("test.txt", "output.txt")
+   keep_going = True
+   while keep_going:
+    display_menu()
+    choice = int(input())
+    match choice:
+       case 1:
+            n = int(input("Please enter a number to compute pi up to: "))
+            print(compute_pi(n))
+       case 2:
+            n = int(input("Please enter a number to find the sqrt of: "))
+            print(compute_sqrt(n))
+       case 3:
+            n = int(input("Please enter a number to display all the primes up to that number: "))
+            display_primes(n)
+       case 4:
+           process_scores()
+       case 5:
+           income = int(input("Please enter your income "))
+           status = str(input("Please enter your marital status (married or single) "))
+           in_state = input("Please enter either 'o' for out of state or 'i' for in state ") 
+
 
 
 main()
