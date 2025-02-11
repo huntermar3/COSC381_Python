@@ -221,7 +221,7 @@ def display_menu():
     print("4. process scores ")
     print("5. compute tax ")
     print("6. solve quadratic solutions ")
-    print("7. sort an array ")
+    print("7. sort an array of numbers ")
     print("8. print an id and password ")
     print("9. sort a file of students by id ")
     print("10. quit")
@@ -237,23 +237,93 @@ def main():
    while keep_going:
     display_menu()
     choice = int(input())
-    match choice:
-       case 1:
-            n = int(input("Please enter a number to compute pi up to: "))
-            print(compute_pi(n))
-       case 2:
-            n = int(input("Please enter a number to find the sqrt of: "))
-            print(compute_sqrt(n))
-       case 3:
-            n = int(input("Please enter a number to display all the primes up to that number: "))
-            display_primes(n)
-       case 4:
-           process_scores()
-       case 5:
-           income = int(input("Please enter your income "))
-           status = str(input("Please enter your marital status (married or single) "))
-           in_state = input("Please enter either 'o' for out of state or 'i' for in state ") 
+    if(choice == 1):
+        n = int(input("Please enter a number to compute pi up to: "))
+        print(compute_pi(n))
+    elif(choice == 2):
+        n = int(input("Please enter a number to find the sqrt of: "))
+        print(compute_sqrt(n))
+    elif(choice == 3):
+        n = int(input("Please enter a number to display all the primes up to that number: "))
+        display_primes(n)
+    elif(choice == 4):
+        process_scores()
+    elif(choice == 5):
+        income = int(input("Please enter your income "))
+        status = str(input("Please enter your marital status (married or single) "))
+        in_state = input("Please enter either 'o' for out of state or 'i' for in state ") 
+        print("Your tax amount is $%.2f" % compute_tax(income, status, in_state))
+    elif(choice == 6):
+        a = int(input("Please enter a number representing 'a' "))
+        b = int(input("Please enter a number representing 'b' "))
+        c = int(input("Please enter a number representing 'c' "))
+        addition_answer , subtract_answer = solve_quadratic(a,b,c)
 
+        if(addition_answer == 0 and subtract_answer == 0):
+            print("Sorry there were no solutions. ")
+            
+        #the plus/minus is the same answer 
+        elif(addition_answer == subtract_answer):
+            print(addition_answer)
+
+        else:
+            print(addition_answer)
+            print(subtract_answer)
+    elif(choice == 7):
+        number_of_numbers_in_list = int(input("How many number are we sorting today"))
+        nums = []
+        for i in range(0, number_of_numbers_in_list):
+            n = int(input("Please enter a number "))
+            nums.insert(len(nums), n)
+
+        sort(nums)
+        for i in range(len(nums)):
+            print(str(nums[i]) + ",", end= '')
+
+        print()
+
+    elif(choice == 8):
+        first = str(input("What is your first name "))
+        last = str(input("What is your last name: "))
+        id_password(first, last)
+
+    elif(choice == 9):
+        input_file = str(input("What is the name of your input file (with .txt) "))
+        output_file = str(input("What is the name of your output file (without .txt) "))
+        file_sort(input_file,output_file)
+
+    elif(choice == 10):
+        print("Goodbye!")
+        break
+
+    else:
+        print("Invalid input try again")
+
+
+class Rectangle:
+    def __init__(self,length, width ):
+        self.length = length
+        self.width = width
+
+    #setters for length and width
+    def setLength(self, length):
+        self.length = length
+    
+    def setWidth(self, width):
+        self.width = width
+
+    def getLength(self):
+        return self.length
+    
+    def getWidth(self):
+        return self.width
+    
+    def area(self):
+        return self.length * self.width
+    
+    def __str__(self):
+        return 
+    
 
 
 main()
