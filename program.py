@@ -37,7 +37,7 @@ def is_prime(n):
 
 def display_primes(n):
     #loop up to n and check every number and if its prime print the number
-    for i in range(1, n + 1 , 1):
+    for i in range(2, n + 1 , 1):
         if(is_prime(i)):
             print(str(i) + ',', end = '')
 
@@ -225,6 +225,7 @@ def display_menu():
     print("8. print an id and password ")
     print("9. sort a file of students by id ")
     print("10. quit")
+    print("11. test the rectangle methods")
     
 # Write a main program that allows a user to use the functions in questions 1-9. The
 # program contains an interactive menu with 10 options. The user enters an option number
@@ -246,6 +247,7 @@ def main():
     elif(choice == 3):
         n = int(input("Please enter a number to display all the primes up to that number: "))
         display_primes(n)
+        print()
     elif(choice == 4):
         process_scores()
     elif(choice == 5):
@@ -296,6 +298,13 @@ def main():
         print("Goodbye!")
         break
 
+    elif(choice == 11):
+        length = int(input("Please enter a length for your rectangle "))
+        width = int(input("Please enter a width for your rectangle "))
+        rectangle = Rectangle(length, width)
+        print("The area for your rectangle is " + str(rectangle.area()))
+        print(rectangle)
+
     else:
         print("Invalid input try again")
 
@@ -322,7 +331,7 @@ class Rectangle:
         return self.length * self.width
     
     def __str__(self):
-        return 
+        return "Rectangle's length is " + str(self.length) + " and the width is " + str(self.width)
     
 
 
