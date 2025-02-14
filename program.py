@@ -1,3 +1,7 @@
+# Hunter Martin
+# COSC 341 Winter 25'
+# 2-13-25
+# Simple python methods
 import math
 def compute_pi(n):
     result = 0
